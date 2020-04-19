@@ -1,0 +1,43 @@
+﻿<div class="card">
+    <div class="card-header">
+        <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" @onclick="ActivatePage">
+                @Text
+            </button>
+        </h2>
+    </div>
+    <div id="collapseTwo" class="collapse @Css">
+        <div class="card-body">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    private AccordionControl Parent { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    internal string Css { get; set; }
+
+    [Parameter]
+    public string Text { get; set; }
+
+    void ActivatePage()
+    {
+        Parent.ActivatePage(this); 
+        Css = (Css == "show") ? "" : "show";
+    }
+
+    protected override void OnInitialized()
+    {
+        if (Parent == null) throw new ArgumentNullException(nameof(Parent), "AccordionItem must exist within a AccordionControl");
+
+        base.OnInitialized();
+        Parent.AddPage(this);
+
+        Css = Parent.GetButtonClass(this);
+    }
+}

@@ -1,0 +1,41 @@
+﻿<CascadingValue Value="this"> 
+    @ChildContent 
+</CascadingValue>
+
+@code{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsMultiView { get; set; } = false;
+
+    public AccordionItem ActivePage { get; set; }
+    List<AccordionItem> Pages = new List<AccordionItem>();
+
+    internal void AddPage(AccordionItem item)
+    {
+        Pages.Add(item);
+        if (Pages.Count == 1) ActivePage = item;
+        StateHasChanged();
+    }
+
+    internal string GetButtonClass(AccordionItem item)
+    {
+        return item == ActivePage ? "show" : "";
+    }
+
+    internal void ActivatePage(AccordionItem item)
+    {
+        ActivePage = item;
+
+        if(!IsMultiView)
+        {
+            foreach (var p in Pages.Where(x => x != ActivePage))
+            {
+                p.Css = GetButtonClass(p);
+            }
+        }
+
+        StateHasChanged();
+    }
+}

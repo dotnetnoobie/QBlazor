@@ -1,0 +1,12 @@
+﻿<div class="alert alert-@Color" role="alert">
+    @ChildContent
+</div>
+
+@code { 
+
+    [Parameter]
+    public BsColors Color { get; set; } = BsColors.primary;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
