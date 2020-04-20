@@ -8,6 +8,16 @@ Welcome to your new app.
 
 <hr />
 
+<button @onclick="SetCookie">SetCookie</button>
+<button @onclick="GetCookie">GetCookie</button>
+
+<hr />
+
+<button @onclick="Window.History.Back">Back</button>
+<button @onclick="Window.History.Forward">Forward</button>
+
+<hr />
+
 <Alert Color="BsColors.danger">
     @userAgent
 </Alert>
@@ -42,7 +52,7 @@ Welcome to your new app.
 @code{
     [Inject] public IMetaData MetaData { get; set; }
 
-    [Inject] public INavigator Navigator { get; set; }
+    [Inject] public IWindow Window { get; set; } 
 
     private string userAgent;
 
@@ -52,6 +62,18 @@ Welcome to your new app.
         await MetaData.Tag("Description", "MyBlazor Description");
         await MetaData.Favicon("/favicon.png");
 
-        userAgent = await Navigator.UserAgent();
+        userAgent = await Window.Navigator.UserAgent();
+    }
+
+    public async Task SetCookie()
+    {
+        await Window.Cookie.Set("cookieName", "cookie value", 7);
+    }
+
+    public async Task GetCookie()
+    {
+        var cookie = await Window.Cookie.Get("cookieName");
+
+        await Window.Alert(cookie);
     }
 }

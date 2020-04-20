@@ -6,5 +6,11 @@ namespace QBlazor
     {
         Task Alert(string message);
         Task Open(string url);
+
+        IHistory History { get; }
+
+        INavigator Navigator { get; }
+
+        ICookie Cookie { get; }
     }
 }

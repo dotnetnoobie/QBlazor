@@ -25,7 +25,6 @@
     <ProjectReference Include="..\QBlazor.EventAggregator\QBlazor.EventAggregator.csproj" />
     <ProjectReference Include="..\QBlazor.MetaData\QBlazor.MetaData.csproj" />
     <ProjectReference Include="..\QBlazor.Mvvm\QBlazor.Mvvm.csproj" />
-    <ProjectReference Include="..\QBlazor.Navigator\QBlazor.Navigator.csproj" />
     <ProjectReference Include="..\QBlazor.Storage\QBlazor.Storage.csproj" />
     <ProjectReference Include="..\QBlazor.Theme\QBlazor.Theme.csproj" />
     <ProjectReference Include="..\QBlazor.Window\QBlazor.Window.csproj" />
