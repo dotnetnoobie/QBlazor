@@ -12,6 +12,11 @@ namespace QBlazor
 
         public ICookie Cookie { get; }
 
+        public ILocation Location { get; }
+
+        public IScreen Screen { get; }
+         
+
         private readonly IJSRuntime jsRuntime;
 
         public Window(IJSRuntime jSRuntime)
@@ -21,6 +26,8 @@ namespace QBlazor
             this.History = new History(this.jsRuntime);
             this.Navigator = new Navigator(this.jsRuntime);
             this.Cookie = new Cookie(this.jsRuntime);
+            this.Location = new Location(this.jsRuntime);
+            this.Screen = new Screen(this.jsRuntime);
         }
 
         public async Task Alert(string message)

@@ -12,5 +12,7 @@ namespace QBlazor
         INavigator Navigator { get; }
 
         ICookie Cookie { get; }
+
+        ILocation Location { get; }
     }
 }
