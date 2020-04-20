@@ -14,7 +14,7 @@ namespace QBlazor
 
         public async Task<string> UserAgent()
         {
-            var sUsrAg = await jsRuntime.InvokeAsync<string>("navigator.userAgent");
+            var sUsrAg = await jsRuntime.InvokeAsync<string>("eval", "navigator.userAgent");
 
             string sBrowser;
             if (sUsrAg.IndexOf("Firefox") > -1)

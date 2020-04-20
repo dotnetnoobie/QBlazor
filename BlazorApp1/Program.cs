@@ -17,6 +17,7 @@ namespace BlazorApp1
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddMetaData();
+            builder.Services.AddNavigator();
 
             await builder.Build().RunAsync();
         }

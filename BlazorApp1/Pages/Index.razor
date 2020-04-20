@@ -9,6 +9,12 @@ Welcome to your new app.
 <hr />
 
 <Alert Color="BsColors.danger">
+    @userAgent
+</Alert>
+
+<hr />
+
+<Alert Color="BsColors.danger">
     A simple secondary alert—check it out!
 </Alert>
 
@@ -36,10 +42,16 @@ Welcome to your new app.
 @code{
     [Inject] public IMetaData MetaData { get; set; }
 
+    [Inject] public INavigator Navigator { get; set; }
+
+    private string userAgent;
+
     protected async override Task OnInitializedAsync()
     {
         await MetaData.Tag("Title", "MyBlazor Title");
         await MetaData.Tag("Description", "MyBlazor Description");
         await MetaData.Favicon("/favicon.png");
+
+        userAgent = await Navigator.UserAgent();
     }
 }
