@@ -15,7 +15,7 @@ namespace QBlazor
         public ILocation Location { get; }
 
         public IScreen Screen { get; }
-         
+
 
         private readonly IJSRuntime jsRuntime;
 
@@ -41,6 +41,23 @@ namespace QBlazor
             {
                 await jsRuntime.InvokeVoidAsync("open", url);
             }
+        }
+
+        public async Task close()
+        {
+            await jsRuntime.InvokeVoidAsync("close");
+        }
+
+
+
+        public async Task<int> InnerHeight()
+        {
+            return await jsRuntime.InvokeAsync<int>("eval", "innerHeight");
+        }
+
+        public async Task<int> InnerWidth()
+        {
+            return await jsRuntime.InvokeAsync<int>("eval", "innerWidth");
         }
     }
 }

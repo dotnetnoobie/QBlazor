@@ -4,15 +4,16 @@ namespace QBlazor
 {
     public interface IWindow
     {
-        Task Alert(string message);
-        Task Open(string url);
-
-        IHistory History { get; }
-
-        INavigator Navigator { get; }
-
         ICookie Cookie { get; }
-
+        IHistory History { get; }
         ILocation Location { get; }
+        INavigator Navigator { get; }
+        IScreen Screen { get; }
+
+        Task Alert(string message);
+        Task close();
+        Task<int> InnerHeight();
+        Task<int> InnerWidth();
+        Task Open(string url);
     }
 }

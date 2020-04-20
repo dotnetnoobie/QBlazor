@@ -4,7 +4,7 @@ namespace QBlazor
 {
     public interface ILocation
     {
-        Task<string> Assign(string url);
+        Task Assign(string url);
         Task<string> Hostname();
         Task<string> Href();
         Task<string> Pathname();

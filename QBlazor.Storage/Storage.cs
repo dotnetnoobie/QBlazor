@@ -13,6 +13,7 @@ namespace QBlazor
             this.type = "local";
         }
     }
+
     public class SessionStorage : Storage, ISessionStorage
     {
         public SessionStorage(IJSRuntime jsRuntime) : base(jsRuntime)
@@ -34,11 +35,14 @@ namespace QBlazor
             this.jsOptions.Converters.Add(new TimespanJsonConverter());
         }
 
-        public async Task Clear() => await jsRuntime.InvokeAsync<object>($"{type}Storage.clear");
+        public async Task Clear() 
+            => await jsRuntime.InvokeAsync<object>($"{type}Storage.clear");
 
-        public async Task<int> Length() => await jsRuntime.InvokeAsync<int>("eval", $"{type}Storage.length");
+        public async Task<int> Length() 
+            => await jsRuntime.InvokeAsync<int>("eval", $"{type}Storage.length");
 
-        public async Task<string> Key(int index) => await jsRuntime.InvokeAsync<string>($"{type}Storage.key", index);
+        public async Task<string> Key(int index) 
+            => await jsRuntime.InvokeAsync<string>($"{type}Storage.key", index);
 
         public async Task<bool> Contains<T>(Expression<Func<T>> expression)
             => await jsRuntime.InvokeAsync<bool>($"{type}Storage.hasOwnProperty", expression.GetKey());

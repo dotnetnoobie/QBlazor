@@ -50,7 +50,7 @@ namespace QBlazor
         public async Task<bool> javaEnabled()
         {
             return await jsRuntime.InvokeAsync<bool>("eval", "navigator.javaEnabled()");
-        }
+        } 
 
         public async Task<string> UserAgent()
         {

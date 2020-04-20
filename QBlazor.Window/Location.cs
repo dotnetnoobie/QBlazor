@@ -1,4 +1,5 @@
 ﻿using Microsoft.JSInterop;
+using System;
 using System.Threading.Tasks;
 
 namespace QBlazor
@@ -32,9 +33,12 @@ namespace QBlazor
             return await jsRuntime.InvokeAsync<string>("eval", "location.protocol");
         }
 
-        public async Task<string> Assign(string url)
+        public async Task  Assign(string url)
         {
-            return await jsRuntime.InvokeAsync<string>("eval", $"location.Assign({url})");
+            if (Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+            {
+                  await jsRuntime.InvokeVoidAsync("eval", $"location.Assign({url})");
+            }
         }
     }
 }

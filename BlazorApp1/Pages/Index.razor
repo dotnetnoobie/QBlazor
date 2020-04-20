@@ -8,6 +8,21 @@ Welcome to your new app.
 
 <hr />
 
+<button @onclick="SetLocalStorage">SetLocalStorage</button>
+<button @onclick="GetLocalStorage">GetLocalStorage</button>
+
+
+<hr />
+
+<div>Screen Height: @Height</div>
+<div>Screen Height: @Width</div>
+<div>Screen AvailHeight: @AvailHeight</div>
+<div>Screen AvailWidth: @AvailWidth</div>
+<div>Screen ColorDepth: @ColorDepth</div>
+<div>Screen PixelDepth: @PixelDepth</div>
+
+<hr />
+
 <button @onclick="SetCookie">SetCookie</button>
 <button @onclick="GetCookie">GetCookie</button>
 
@@ -52,9 +67,20 @@ Welcome to your new app.
 @code{
     [Inject] public IMetaData MetaData { get; set; }
 
-    [Inject] public IWindow Window { get; set; } 
+    [Inject] public IWindow Window { get; set; }
+
+    [Inject] public ILocalStorage LocalStorage { get; set; }
 
     private string userAgent;
+
+    private int Height;
+    private int Width;
+    private int AvailHeight;
+    private int AvailWidth;
+    private int ColorDepth;
+    private int PixelDepth;
+
+    public string MyProperty { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -63,6 +89,15 @@ Welcome to your new app.
         await MetaData.Favicon("/favicon.png");
 
         userAgent = await Window.Navigator.UserAgent();
+
+        Height = await Window.Screen.Height();
+        Width = await Window.Screen.Width();
+        AvailHeight = await Window.Screen.AvailHeight();
+        AvailWidth = await Window.Screen.AvailWidth();
+        ColorDepth = await Window.Screen.ColorDepth();
+        PixelDepth = await Window.Screen.PixelDepth();
+
+        MyProperty = "This is the test";
     }
 
     public async Task SetCookie()
@@ -75,5 +110,17 @@ Welcome to your new app.
         var cookie = await Window.Cookie.Get("cookieName");
 
         await Window.Alert(cookie);
+    }
+
+    public async Task SetLocalStorage()
+    {
+        await LocalStorage.Set(()=>MyProperty);
+    }
+
+    public async Task GetLocalStorage()
+    {
+        var test = await LocalStorage.Get(() => MyProperty);
+
+        await Window.Alert(test);
     }
 }

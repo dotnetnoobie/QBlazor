@@ -17,11 +17,17 @@ namespace QBlazor
     public interface IStorage
     {
         Task Clear();
+
         Task<bool> Contains<T>(Expression<Func<T>> expression);
+
         Task<T> Get<T>(Expression<Func<T>> expression);
+
         Task<string> Key(int index);
+
         Task<int> Length();
+
         Task Remove<T>(Expression<Func<T>> expression);
+
         Task Set<T>(Expression<Func<T>> expression);
     }
 }
