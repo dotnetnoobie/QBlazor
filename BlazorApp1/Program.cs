@@ -19,6 +19,7 @@ namespace BlazorApp1
             builder.Services.AddMetaData();
             builder.Services.AddWindow();
             builder.Services.AddLocalStorage();
+            builder.Services.AddNotifications();
 
             await builder.Build().RunAsync();
         }

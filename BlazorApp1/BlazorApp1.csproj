@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -14,10 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0-rc1.20223.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0-rc1.20223.4" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0-rc1.20223.4" PrivateAssets="all" />
-    <PackageReference Include="System.Net.Http.Json" Version="5.0.0-preview.3.20214.6" /> 
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0-preview.4.20251.6" /> 
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +25,7 @@
     <ProjectReference Include="..\QBlazor.EventAggregator\QBlazor.EventAggregator.csproj" />
     <ProjectReference Include="..\QBlazor.MetaData\QBlazor.MetaData.csproj" />
     <ProjectReference Include="..\QBlazor.Mvvm\QBlazor.Mvvm.csproj" />
+    <ProjectReference Include="..\QBlazor.Notifications\QBlazor.Notifications.csproj" />
     <ProjectReference Include="..\QBlazor.Storage\QBlazor.Storage.csproj" />
     <ProjectReference Include="..\QBlazor.Theme\QBlazor.Theme.csproj" />
     <ProjectReference Include="..\QBlazor.Window\QBlazor.Window.csproj" />

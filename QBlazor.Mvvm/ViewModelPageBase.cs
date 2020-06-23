@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace QBlazor
 {
-    public class ViewModelPageBase<T> : ComponentBase where T : ViewModelBase
+    public abstract class ViewModelPageBase<T> : ComponentBase where T : ViewModelBase
     {
         [Inject]
         public T ViewModel { get; set; }
@@ -19,11 +19,7 @@ namespace QBlazor
             ViewModel.InvokeAsyncAction += (a) => this.InvokeAsync(a);
             ViewModel.InvokeAsyncFunc += (f) => this.InvokeAsync(f);
 
-            //this.InvokeAsync(() => ViewModel.OnInvokeAsyncAction.Invoke());
-
-            //ViewModel.OnInvokeAsyncAction = 
-
-            //ViewModel.OnInitialized();
+            ViewModel.OnInitialized();
         }
 
         protected override void OnAfterRender(bool firstRender)

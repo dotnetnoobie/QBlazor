@@ -1,0 +1,23 @@
+﻿@page "/notifications"
+
+<h3>Notifications</h3>
+
+<button @onclick="RequestPermission">RequestPermission</button>
+
+<button @onclick="Create">Create</button>
+
+@code {
+
+    [Inject] public INotifications NotificationService { get; set; }
+
+    public async Task RequestPermission()
+    {
+        var x = await NotificationService.RequestPermission();
+    }
+
+    public async Task Create()
+    {
+       await NotificationService.Create("This is the Title", "This is the Body!!!");
+    }
+
+}

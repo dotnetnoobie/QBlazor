@@ -1,0 +1,29 @@
+﻿@typeparam TItem
+
+@if (IsLoading && LoadingTemplate != null)
+{
+    @LoadingTemplate
+}
+else if (Items != null && Items.Any())
+{
+    @foreach (var item in Items)
+    {
+        @ItemTemplate(item)
+    }
+}
+
+@code {
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public RenderFragment LoadingTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+}

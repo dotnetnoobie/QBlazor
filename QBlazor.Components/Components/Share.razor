@@ -1,0 +1,81 @@
+﻿<Button @onclick="Click">@ChildContent</Button>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Url { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public bool ChannelMode { get; set; } = false;
+
+    [Parameter]
+    public bool FullScreen { get; set; } = false;
+
+    [Parameter]
+    public bool Location { get; set; } = false;
+
+    [Parameter]
+    public bool MenuBar { get; set; } = false;
+
+    [Parameter]
+    public bool Resizable { get; set; } = false;
+
+    [Parameter]
+    public bool ScrollBars { get; set; } = false;
+
+    [Parameter]
+    public bool Status { get; set; } = false;
+
+    [Parameter]
+    public bool TitleBar { get; set; } = false;
+
+    [Parameter]
+    public bool ToolBar { get; set; } = false;
+
+    [Parameter]
+    public uint Top { get; set; } = 100;
+
+    [Parameter]
+    public uint Left { get; set; } = 100;
+
+    [Parameter]
+    public uint Height { get; set; } = 570;
+
+    [Parameter]
+    public uint Width { get; set; } = 520;
+
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
+    private async Task Click()
+    {
+        // Console.WriteLine("Open New Window");
+
+        var features = new Dictionary<string, string>();
+
+        features.Add("channelmode", ChannelMode ? "yes" : "no");
+        features.Add("fullscreen", FullScreen ? "yes" : "no");
+        features.Add("location", Location ? "yes" : "no");
+
+        features.Add("menubar", MenuBar ? "yes" : "no");
+        features.Add("resizable", Resizable ? "yes" : "no");
+        features.Add("scrollbars", ScrollBars ? "yes" : "no");
+        features.Add("status", Status ? "yes" : "no");
+        features.Add("titlebar", TitleBar ? "yes" : "no");
+        features.Add("toolbar", ToolBar ? "yes" : "no");
+
+        features.Add("top", Top.ToString());
+        features.Add("left", Left.ToString());
+        features.Add("height", Height.ToString());
+        features.Add("width", Width.ToString());
+
+        var featuresStr = string.Join(",", features.Where(p => !string.IsNullOrEmpty(p.Key) && !string.IsNullOrEmpty(p.Value?.ToString())).Select(p => $"{p.Key}={p.Value}"));
+
+        await JSRuntime.InvokeVoidAsync("open", new[] { Url, "_blank ", featuresStr });
+    }
+}

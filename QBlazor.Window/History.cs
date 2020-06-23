@@ -16,6 +16,7 @@ namespace QBlazor
         {
             await jsRuntime.InvokeVoidAsync("eval", "history.forward()");
         }
+
         public async Task Back()
         {
             await jsRuntime.InvokeVoidAsync("eval", "history.back()");

@@ -48,8 +48,6 @@ namespace QBlazor
             await jsRuntime.InvokeVoidAsync("close");
         }
 
-
-
         public async Task<int> InnerHeight()
         {
             return await jsRuntime.InvokeAsync<int>("eval", "innerHeight");
