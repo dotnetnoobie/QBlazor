@@ -114,7 +114,8 @@ Welcome to your new app.
 
     public async Task SetLocalStorage()
     {
-        await LocalStorage.Set(()=>MyProperty);
+        await LocalStorage.Set(() => MyProperty);
+        // await LocalStorage.Set<string>("MyProperty", MyProperty);
     }
 
     public async Task GetLocalStorage()

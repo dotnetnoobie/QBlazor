@@ -32,7 +32,6 @@ namespace QBlazor
         public Action<Action> InvokeAsyncAction { get; set; }
 
         public Action<Func<Task>> InvokeAsyncFunc { get; set; }
-
     }
 }
 

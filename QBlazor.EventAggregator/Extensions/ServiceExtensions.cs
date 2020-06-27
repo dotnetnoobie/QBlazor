@@ -4,7 +4,7 @@ using QBlazor;
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class ServiceCollectionExtensions
+    public static class ServiceExtensions
     {
         /// <summary>
         /// Adds IEventAggregator as a singleton

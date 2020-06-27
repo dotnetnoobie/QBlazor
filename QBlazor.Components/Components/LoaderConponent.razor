@@ -1,15 +1,15 @@
-﻿@if (IsLoading)
+﻿@if (IsLoaded)
 {
-    @LoadingTemplate
+    @ContentTemplate
 }
 else
 {
-    @ContentTemplate
+    @LoadingTemplate
 }
 
 @code{
 
-    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public bool IsLoaded { get; set; }
 
     [Parameter] public RenderFragment LoadingTemplate { get; set; }
 
