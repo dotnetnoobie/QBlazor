@@ -72,8 +72,7 @@ namespace QBlazor
 
                 var element = await jsRuntime.InvokeAsync<object>("eval", $"document.head.querySelector('{name}')");
                 if (element != null)
-                {
-                    //await jsRuntime.InvokeVoidAsync("eval", $"document.head.removeChild(document.querySelector('{name}'))");
+                { 
                     await jsRuntime.InvokeVoidAsync("eval", $"document.head.querySelector('{name}').innerText = \"{value}\"");
                     return;
                 }
@@ -89,8 +88,7 @@ namespace QBlazor
             {
                 var element = await jsRuntime.InvokeAsync<object>("eval", $"document.head.querySelector('link[rel=\"shortcut icon\"]')");
                 if (element != null)
-                {
-                    //await jsRuntime.InvokeVoidAsync("eval", $"document.head.removeChild(document.querySelector('link[rel=\"shortcut icon\"]'))");
+                { 
                     await jsRuntime.InvokeVoidAsync("eval", $"document.head.querySelector('link[rel=\"shortcut icon\"]').setAttribute(\"href\", \"{url}\")");
                     return;
                 }
@@ -100,25 +98,4 @@ namespace QBlazor
             }
         }
     }
-}
-
-
-
-
-
-// await jsRuntime.InvokeVoidAsync("eval", "document.querySelector('meta[name=\"Description\"]').setAttribute(\"content\", \"This is the contnent\");");
-
-// await jsRuntime.InvokeVoidAsync("eval", "document.head.removeChild(document.querySelector('meta[name=\"description\"]'))");
-
-// var x = await jsRuntime.InvokeAsync<object>("eval", "document.querySelector('meta[name=\"description\"]')");
-
-// Console.WriteLine(x != null);
-
-// var xx = await jsRuntime.InvokeAsync<object>("eval", "document.querySelector('meta[name=\"test\"]')");
-
-// Console.WriteLine(xx != null);
-
-
-
-// await jsRuntime.InvokeVoidAsync("document.querySelector('meta[name=\"Description\"]');");
-// await jsRuntime.InvokeVoidAsync("document.querySelector('meta[name=\"Description\"]').setAttribute();", new[] { "content", "This is the contnent" });
+} 

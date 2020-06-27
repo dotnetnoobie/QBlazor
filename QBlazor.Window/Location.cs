@@ -36,8 +36,7 @@ namespace QBlazor
         public async Task Assign(string url)
         {
             if (Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
-            {
-                // await jsRuntime.InvokeVoidAsync("eval", $"location.Assign({url})");
+            { 
                 await jsRuntime.InvokeVoidAsync("eval", $"location.Assign({url})");
             }
         }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace QBlazor
 {
-    public class Theme
+    public class Theme : ITheme
     {
         public event EventHandler<bool> Changed;
 
@@ -49,24 +49,3 @@ namespace QBlazor
         }
     }
 }
-
-
-
-
-
-//if (IsDark)
-//{
-//    Task.Run(async () => await js.InvokeVoidAsync("document.body.setAttribute", "data-theme", "dark"));
-//}
-//else
-//{
-//    Task.Run(async () => await js.InvokeVoidAsync("document.body.removeAttribute", "data-theme"));
-//}
-
-
-//_key = this.GetType().FullName + ".IsDark";
-
-//Console.WriteLine("Key: " + _key);
-
-
-// Task.Run(async () => IsDark = await localStorage.Get<bool>(_key)); 

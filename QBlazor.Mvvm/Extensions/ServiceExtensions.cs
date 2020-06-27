@@ -38,28 +38,3 @@ namespace QBlazor
         }
     }
 }
-
-
-//if (!services.Contains(new ServiceDescriptor(typeof(ILocalStorage), typeof(LocalStorage))))
-//{
-//    services.AddScoped<ILocalStorage, LocalStorage>();
-//}
-
-//services.AddScoped<ILocalStorage, LocalStorage>();
-//services.AddScoped<Storage>();
-
-
-//public static async Task<WebAssemblyHost> InitializeMvvm(this WebAssemblyHost host)
-//{
-//    var assembly = Assembly.GetCallingAssembly();
-//    var vms = assembly.GetTypes().Where(t => t.BaseType == typeof(ViewModelBase));
-
-//    foreach (var vm in vms)
-//    {
-//        Console.WriteLine("Initialize: " + vm.Name);
-
-//        await (host.Services.GetService(vm) as ViewModelBase).Initialize();
-//    }
-
-//    return host;
-//}

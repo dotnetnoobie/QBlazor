@@ -6,12 +6,10 @@ namespace QBlazor
 {
     public interface ILocalStorage : IStorage
     {
-        //string type => "local";
     }
 
     public interface ISessionStorage : IStorage
     {
-        //string type => "session";
     }
 
     public interface IStorage

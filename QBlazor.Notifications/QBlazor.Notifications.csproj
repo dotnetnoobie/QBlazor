@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+	  <RootNamespace>QBlazor</RootNamespace>
+	  <Authors>.net noobie</Authors>
+	  <Description>Quick Blazor MVVM</Description>
+	  <PackageProjectUrl>https://dotnetnoobie.com</PackageProjectUrl>
+	  <PackageIcon>Boss.png</PackageIcon>
+	  <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
