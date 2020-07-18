@@ -8,6 +8,7 @@
     <PackageIcon>Boss.png</PackageIcon>
     <PackageProjectUrl>https://dotnetnoobie.com</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
