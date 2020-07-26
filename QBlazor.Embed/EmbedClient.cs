@@ -42,8 +42,6 @@ namespace QBlazor.Embed
 
             IMetaData metaData = new T();
 
-
-
             return (T)metaData;
         }
 
