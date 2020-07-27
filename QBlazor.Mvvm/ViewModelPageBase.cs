@@ -18,7 +18,6 @@ namespace QBlazor
             ViewModel.PropertyChanged += (o, e) => this.InvokeAsync(() => this.StateHasChanged());
             ViewModel.InvokeAsyncAction += (a) => this.InvokeAsync(a);
             ViewModel.InvokeAsyncFunc += (f) => this.InvokeAsync(f);
-
             ViewModel.OnInitialized();
         }
 
