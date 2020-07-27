@@ -6,6 +6,7 @@ namespace QBlazor
     {
         public LocalStorage(IJSRuntime jsRuntime) : base(jsRuntime)
         {
+            // Local Storage
             this.type = "local";
         }
     }
