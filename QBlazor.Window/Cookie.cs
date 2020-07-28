@@ -18,7 +18,7 @@ namespace QBlazor
             var d = DateTimeOffset.UtcNow; 
             var expires = "expires=" + d.AddDays(exdays).ToUnixTimeMilliseconds(); 
             var cookie = name + "=" + value + ";" + expires + ";path=/";
-            // Console.WriteLine(cookie);
+            // Console.WriteLine(cookie); //
             await jsRuntime.InvokeVoidAsync("eval", $"cookie='{cookie}'");
         }
 
